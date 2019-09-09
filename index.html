@@ -1,96 +1,331 @@
+<!--Template inspired by w3.css-->
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<title>EWB - Cornell</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Arial", sans-serif}
 
-<head>
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+/* Full height image header */
+.bgimg-1 {
+  
+  background-position: center;
+  background-size: cover;
+  background-image: url("Images/header.JPG");
+  min-height: 100%;
+}
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
-
-</head>
-
+.w3-bar .w3-button {
+  padding: 16px;
+}
+</style>
 <body>
 
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#">Shortcuts</a>
-                </li>
-                <li>
-                    <a href="#curriculum">Curriculum</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <h1>Simple Sidebar</h1>
-                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
-                <div class="container-fluid" id="test">
-                    <h1>Curriculum</h1>
-                    <p>let's go!
-                    </p>
-                </div>
-            </div>
-            <div class="container-fluid" id="curriculum">
-                <h1>Curriculum</h1>
-                <p>let's go!
-                </p>
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a href="#home" class="w3-bar-item w3-button"><img title="Engineers Without Borders - Cornell" src="Images/Official-logo.png" alt="Engineers Without Borders - Cornell" height="60"></a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="#about" class="w3-bar-item w3-button">ABOUT US</a>
+      <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
+      <a href="#gallery" class="w3-bar-item w3-button"><i class="fa fa-th"></i> GALLERY</a>
+      <a href="#sponsors" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> SPONSORS</a>
+      <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
     </div>
-    <!-- /#wrapper -->
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
 
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT US</a>
+  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
+  <a href="#gallery" onclick="w3_close()" class="w3-bar-item w3-button">GALLERY</a>
+  <a href="#sponsors" onclick="w3_close()" class="w3-bar-item w3-button">SPONSORS</a>
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+</nav>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container" id="home">
+    <div class="w3-display-left w3-text-white" style="padding:45px">
+    <span class="w3-jumbo w3-hide-small"><b> Building a better world</b></span><br>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium"><b> Building a better world </b></span><br>
+    <span class="w3-large"> Passionate students designing sustainable solutions </span>
+    <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Support our mission today</a></p>
+  </div> 
+  <div class="w3-display-bottomleft w3-text-white w3-xxlarge" style="padding:24px 48px">
+    <a href="https://www.facebook.com/EWBCornell/"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+      <a href="https://www.instagram.com/ewbcornell/"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+      <a href="https://www.linkedin.com/company/ewb-cornell"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+
+  </div>
+</header>
+
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px" id="about">
+  <h3 class="w3-center">ABOUT US</h3>
+  <p class="w3-center w3-large">EWB-Cornell's Key Values</p>
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-quarter">
+      <i class="fa fa-globe w3-margin-bottom w3-jumbo w3-center" style="color: #095aa6"></i>
+      <p class="w3-large">Global Awareness</p>
+      <p>Our international and domestic projects reflect our diverse experiences</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-heart w3-margin-bottom w3-jumbo" style="color: #095aa6"></i>
+      <p class="w3-large">Compassion</p>
+      <p>The EWB team works to understand each other and the people we work with </p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-handshake-o w3-margin-bottom w3-jumbo" style="color: #095aa6"></i>
+      <p class="w3-large">Collaboration</p>
+      <p>We work closely with the Cornell engineering community and our project communities</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-cog w3-margin-bottom w3-jumbo" style="color: #095aa6"></i>
+      <p class="w3-large">Technical Expertise</p>
+      <p>Our projects incorporate our rigorous engineering training</p>
+    </div>
+  </div>
+<p align="center justify" class="w3-center w3-large">Engineers Without Borders - Cornell is a group of passionate and highly motivated students who aim to create long-lasting solutions to problems in international communities. Members are given the opportunity to nurture their creative and technical expertise by designing and implementing sustainable engineering projects. Through collaboration with communities in developing countries around the world, our members are exposed to diverse cultures while gaining academic experience outside of the classroom environment. <br><br>
+
+Our growing team of 34 dedicated students includes undergraduate and graduate students from several of Cornell’s colleges including the College of Engineering, the College of Arts and Sciences, and the College of Agriculture and Life Sciences. Our network also extends beyond Cornell’s campus to over 250 EWB chapters.</p>  
+</div>
+
+<!-- Promo Section --->
+<div class="w3-container w3-light-grey" style="padding:128px 16px">
+  <div class="w3-row-padding">
+    <h3>OUR PROJECTS</h3> <!--Add text!-->
+    <div class="w3-col m6">
+        <p>Since our founding in 2011, we have completed two international projects in Calcha, Bolivia, and are in progress towards implementing a third in Sunuka, Tanzania. Additionally, we have worked with nearby organizations to help those in our community in need.
+        <br><br>
+            <b>CALCHA:</b> <br>Originally planning to work in Calcha on an irrigation system, our team quickly identified a need for a way to connect people's homes to their crops in the wet season, during our preliminary assessment trip there. After a second trip in 2015 to collect more data to refine our plans, eight of our members spent eight weeks in the summer of 2016 implementing our design for a 50-meter supension bridge there. The following summer, we improved irrigation channels there in a second implementation trip. Finally, we returned in 2018 for a monitoring trip to ensure our projects remain long-lasting solutions to the problems identified within the community. 
+        <br><br>
+            <b>SUNUKA:</b><br>Recently, we have begun work with a community in Sunuka, Tanzania. Here, we are working on designs to irrigate large areas of farmland in the dry season, which are uphill from main water sources. During our two assessments here since 2018, we have connected with the community to realize their needs and employed cutting-edge technology such as drone surveying. We anticipate creating a system using a renewable source of power to pump water up to irrigation channels within the farmlands. 
+        </p><br>
+      <p><a href="#gallery" class="w3-button w3-black"><i class="fa fa-th"> </i> View Our Projects</a></p>
+    </div>
+    <div class="w3-col m6">
+      <img class="w3-image w3-round-large" src="Images/tanzania_drone_pic2.JPG" alt="Drone image of Tanzania" width="700" height="394">
+    </div>
+  </div>
+</div>
+
+<!-- Team Section -->
+<div class="w3-container" style="padding:128px 16px" id="team">
+  <h3 class="w3-center">THE TEAM</h3>
+  <p class="w3-center w3-large">Executive Board</p>
+  <div class="w3-row-padding" style="margin-top:50px">
+    <div class="w3-col l3 m3 w3-margin-bottom">
+      <div class="w3-card" style="width:75%">
+        <img src="Images/Headshots/Josh.jpg" alt="Josh" style="width:100%">
+        <div class="w3-container">
+          <h3>Josh Popp</h3>
+          <p class="w3-opacity">President</p>
+            <p>BEE 2019</p>
+          <p><button class="w3-button w3-light-grey w3-block"><a href="mailto:jmp448@cornell.edu" style="text-decoration: none;"><i class="fa fa-envelope"></i> Contact</a></button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m3 w3-margin-bottom">
+      <div class="w3-card" style="width:75%">
+        <img src="Images/Headshots/Carolyn.jpg" alt="Carolyn" style="width:100%">
+        <div class="w3-container">
+          <h3>Carolyn Shi</h3>
+          <p class="w3-opacity">Vice President</p>
+          <p>ORIE 2019</p>
+          <p><button class="w3-button w3-light-grey w3-block"><a href="mailto:cs947@cornell.edu" style="text-decoration: none;"><i class="fa fa-envelope"></i> Contact</a></button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m3 w3-margin-bottom">
+      <div class="w3-card" style="width:75%">
+        <img src="Images/Headshots/Clare.jpg" alt="Clare" style="width:100%">
+        <div class="w3-container">
+          <h3>Clare Snyder</h3>
+          <p class="w3-opacity">Treasurer</p>
+          <p>ISST 2019</p>
+         <p><button class="w3-button w3-light-grey w3-block"><a href="mailto:cds238@cornell.edu" style="text-decoration: none;"><i class="fa fa-envelope"></i> Contact</a></button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m3 w3-margin-bottom">
+      <div class="w3-card" style="width:75%">
+        <img src="Images/Headshots/Cynthia.jpg" alt="Cynthia" style="width:100%">
+        <div class="w3-container">
+          <h3>Cynthia Horna</h3>
+          <p class="w3-opacity">Secretary</p>
+          <p>CHEME 2019</p>
+            <p><button class="w3-button w3-light-grey w3-block"><a href="mailto:csh96@cornell.edu" style="text-decoration: none;"><i class="fa fa-envelope"></i> Contact</a></button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="w3-container w3-margin-bottom" align="middle">
+    <img class="w3-image w3-round-large " src="Images/Headshots/Full_Team.jpg" alt="EWB_Cornell full team photo" width="700" height="394">
+    <p class="w3-center"><a href="team.html" class="w3-button w3-black w3-center"><i class="fa fa-group"> </i> View Our Team</a></p>
+</div>
+
+<!-- Promo Section "Statistics" -->
+<div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64">
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">3</span>
+    <br>Countries
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">30+</span>
+    <br>Members
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">50%+</span>
+    <br>Women
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">11</span>
+    <br>Majors
+  </div>
+</div>
+
+<!-- Work Section -->
+<div class="w3-container" style="padding:100px 16px" id="gallery">
+  <h3 class="w3-center">OUR WORK</h3>
+  <p class="w3-center w3-large"Project Gallery</p>
+
+  <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-col l3 m6">
+      <img src="Images/tanzania_drone_pic3.JPG" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="x">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="Images/tanzania_drone_pic4.JPG" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="x">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="Images/tanzania_5.JPG" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="x">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="Images/tanzania_6.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="x">
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-section">
+    <div class="w3-col l3 m6">
+      <img src="Images/skate_night.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="x">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="Images/bridge.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="x">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="Images/bolivia.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="x">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="Images/tanzania_team.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="x">
+    </div>         
+  </div>
+  <div class="w3-center" style="padding:25px 16px">
+    <p><a href="gallery.html" class="w3-button w3-black"><i class="fa fa-th"> </i> View More</a></p>
+  </div>
+ <div class="w3-row-padding w3-section w3-center" style="padding:100px 16px">
+    <h3 class="w3-center">EWB IN THE MEDIA</h3> 
+     <a class="w3-button" href="http://news.cornell.edu/stories/2016/09/engineering-students-build-bridge-friendships-bolivia">Engineering students build bridge, friendships in Bolivia</a>
+     <br>
+     <a class="w3-button" href="https://www.engineering.com/Education/EducationArticles/ArticleID/13404/Student-Engineers-Without-Borders-Build-Bridges-in-Bolivia.aspx">Student Engineers Without Borders Build Bridges in Bolivia</a>
+     <br>
+     <a class="w3-button" href="https://cornellsun.com/2016/04/19/student-team-supports-sustainable-collaborative-development/">Student Team Supports Sustainable, Collaborative Development</a>
+     <br>
+     <a class="w3-button" href="https://cornellsun.com/2017/10/15/building-bridges-cornell-engineers-aid-bolivian-village/">Building Bridges: Cornell Engineers Aid Bolivian Village</a>
+     <br>
+     <a class="w3-button" href="https://news.cornell.edu/stories/2017/05/2017-merrill-scholars-honor-their-teachers-and-mentors">2017 Merrill Scholars Yezy Lim and Sarah Malek</a>
+     <br>
+     <a class="w3-button" href="https://cornellsun.com/2019/03/24/cornell-ranked-no-18-volunteer-producing-school-in-peace-corps-report/">Lianna Kardeman on joining Peace Corps</a>
+     <br>
+ </div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+    
+<!--Sponsors-->
+<div class="w3-container" id="sponsors">
+  <h3 class="w3-center">SPONSORS</h3>
+  <p align="center justify" class="w3-center w3-large">We are so proud of the work that we do, and it really takes a village to achieve everything we have to this point. We are particularly indebted to our generous donors for making our trips and implementations possible. Please check out our past and current sponsors, and email us for more information about our sponsorship package!</p> 
+</div>
+  
+
+<!-- Contact Section -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
+  <h3 class="w3-center">CONTACT</h3>
+  <p class="w3-center w3-large">Get in touch</p>
+  <div class="w3-center" style="margin-top:48px">
+    <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Cornell University, Ithaca, NY</p>
+    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: ewbcornell@gmail.com</p>
+    <br>
+      <div class="w3-xlarge w3-section">
+    <a href="https://www.facebook.com/EWBCornell/"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+      <a href="https://www.instagram.com/ewbcornell/"><i class="fa fa-instagram w3-hover-opacity" \></i></a>
+      <a href="https://www.linkedin.com/company/ewb-cornell"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+  </div>
+    
+    <!-- Image of location/map -->
+    <img src="Images/EWB-map.png" alt="EWB map" class="w3-image" style="width:100%;margin-top:48px">
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-padding-64" style="background-color: #1c4872">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  
+  <!--<p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>-->
+</footer>
+ 
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+</script>
 
 </body>
-
 </html>

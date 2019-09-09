@@ -1,0 +1,212 @@
+<!--Template inspired by w3.css-->
+
+<!DOCTYPE html>
+<html>
+<title>EWB - Cornell 2019 Team</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Arial", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+    
+.w3-bar .w3-button {
+  padding: 16px;
+}
+</style>
+<body>
+    
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a href="index.html" class="w3-bar-item w3-button"><img title="Engineers Without Borders - Cornell" src="Images/Official-logo.png" alt="Engineers Without Borders - Cornell" height="60"></a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="index.html#about" class="w3-bar-item w3-button">ABOUT US</a>
+      <a href="index.html#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
+      <a href="index.html#gallery" class="w3-bar-item w3-button"><i class="fa fa-th"></i> GALLERY</a>
+      <a href="index.html#sponsors" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> SPONSORS</a>
+      <a href="index.html#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="index.html#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT US</a>
+  <a href="index.html#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
+  <a href="index.html#gallery" onclick="w3_close()" class="w3-bar-item w3-button">GALLERY</a>
+  <a href="index.html#sponsors" onclick="w3_close()" class="w3-bar-item w3-button">SPONSORS</a>
+  <a href="index.html#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+</nav>
+    
+
+<div class="w3-container w3-margin-bottom" align="middle">
+    <img class="w3-image w3-round-large " src="Images/Headshots/Full_Team.jpg" alt="EWB_Cornell full team photo" width="700" height="394" style="margin-top:150px">
+</div>    
+<!-- Eboard Section -->
+<div class="w3-container" style="padding:50px 16px" id="eboard">
+  <h3 class="w3-center">EWB-Cornell 2018-2019</h3>
+  <p class="w3-center w3-large">Executive Board</p>
+  <div class="w3-row-padding" style="margin-top:50px">
+    <div class="w3-col l3 m3 w3-margin-bottom">
+      <div class="w3-card" style="width:75%">
+        <img src="Images/Headshots/Josh.jpg" alt="Josh" style="width:100%">
+        <div class="w3-container">
+          <h3>Josh Popp</h3>
+          <p class="w3-opacity">President</p>
+            <p>BEE 2019</p>
+          <p><button class="w3-button w3-light-grey w3-block"><a href="mailto:jmp448@cornell.edu" style="text-decoration: none;"><i class="fa fa-envelope"></i> Contact</a></button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m3 w3-margin-bottom">
+      <div class="w3-card" style="width:75%">
+        <img src="Images/Headshots/Carolyn.jpg" alt="Carolyn" style="width:100%">
+        <div class="w3-container">
+          <h3>Carolyn Shi</h3>
+          <p class="w3-opacity">Vice President</p>
+          <p>ORIE 2019</p>
+          <p><button class="w3-button w3-light-grey w3-block"><a href="mailto:cs947@cornell.edu" style="text-decoration: none;"><i class="fa fa-envelope"></i> Contact</a></button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m3 w3-margin-bottom">
+      <div class="w3-card" style="width:75%">
+        <img src="Images/Headshots/Clare.jpg" alt="Clare" style="width:100%">
+        <div class="w3-container">
+          <h3>Clare Snyder</h3>
+          <p class="w3-opacity">Treasurer</p>
+          <p>ISST 2019</p>
+         <p><button class="w3-button w3-light-grey w3-block"><a href="mailto:cds238@cornell.edu" style="text-decoration: none;"><i class="fa fa-envelope"></i> Contact</a></button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m3 w3-margin-bottom">
+      <div class="w3-card" style="width:75%">
+        <img src="Images/Headshots/Cynthia.jpg" alt="Cynthia" style="width:100%">
+        <div class="w3-container">
+          <h3>Cynthia Horna</h3>
+          <p class="w3-opacity">Secretary</p>
+          <p>CHEME 2019</p>
+            <p><button class="w3-button w3-light-grey w3-block"><a href="mailto:csh96@cornell.edu" style="text-decoration: none;"><i class="fa fa-envelope"></i> Contact</a></button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+<!-- Business Section -->
+<div class="w3-container" style="padding:50px 16px" id="business">
+  <p class="w3-center w3-large">Business Team</p>
+  <div class="w3-row-padding" style="margin-top:50px">
+    <div class="w3-col l3 m3 w3-margin-bottom">
+      <div class="w3-card" style="width:75%">
+        <img src="Images/Headshots/Erica.jpg" alt="Erica" style="width:100%">
+        <div class="w3-container">
+          <h3>Erica St. Jean</h3>
+          <p class="w3-opacity">Business Lead</p>
+            <p>BME 2021</p>
+          <p><button class="w3-button w3-light-grey w3-block"><a href="mailto:els293@cornell.edu" style="text-decoration: none;"><i class="fa fa-envelope"></i> Contact</a></button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m3 w3-margin-bottom">
+      <div class="w3-card" style="width:75%">
+        <img src="Images/Headshots/Sam.jpg" alt="Sam" style="width:100%">
+        <div class="w3-container">
+          <h3>Sam Ryb</h3>
+          <p class="w3-opacity">Business Assistant Lead</p>
+            <p>MATH + LING 2021</p>
+          <p><button class="w3-button w3-light-grey w3-block"><a href="mailto:els293@cornell.edu" style="text-decoration: none;"><i class="fa fa-envelope"></i> Contact</a></button></p>
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>
+
+          
+  <!-- Domestic Section -->
+<div class="w3-container" style="padding:50px 16px" id="domestic">
+  <p class="w3-center w3-large">Erie Team</p>
+  <div class="w3-row-padding" style="margin-top:50px">
+    <div class="w3-col l3 m3 w3-margin-bottom">
+      <div class="w3-card" style="width:75%">
+        <img src="Images/Headshots/Isha.jpg" alt="Isha" style="width:100%">
+        <div class="w3-container">
+          <h3>Isha Pradhan</h3>
+          <p class="w3-opacity">Erie Lead</p>
+            <p>MechE 2020</p>
+          <p><button class="w3-button w3-light-grey w3-block"><a href="mailto:ip94@cornell.edu" style="text-decoration: none;"><i class="fa fa-envelope"></i> Contact</a></button></p>
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>
+    
+  <!-- Tanzania Section -->
+<div class="w3-container" style="padding:50px 16px" id="tanzania">
+  <p class="w3-center w3-large">Sunuka Team</p>
+  <div class="w3-row-padding" style="margin-top:50px">
+    <div class="w3-col l3 m3 w3-margin-bottom">
+      <div class="w3-card" style="width:75%">
+        <img src="Images/Headshots/Ilana.jpg" alt="Ilana" style="width:100%">
+        <div class="w3-container">
+          <h3>Ilana Hill</h3>
+          <p class="w3-opacity">Sunuka Lead</p>
+            <p>Environmental Eng 2021</p>
+          <p><button class="w3-button w3-light-grey w3-block"><a href="mailto:igh9@cornell.edu" style="text-decoration: none;"><i class="fa fa-envelope"></i> Contact</a></button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m3 w3-margin-bottom">
+      <div class="w3-card" style="width:75%">
+        <img src="Images/Headshots/Jaimie.jpg" alt="Jaimie" style="width:100%">
+        <div class="w3-container">
+          <h3>Jaimie Diamond</h3>
+          <p class="w3-opacity">Sunuka Lead</p>
+            <p>BME 2021</p>
+          <p><button class="w3-button w3-light-grey w3-block"><a href="mailto:jsd242@cornell.edu" style="text-decoration: none;"><i class="fa fa-envelope"></i> Contact</a></button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>   
+    
+   <!-- Tech Dev Section -->
+<div class="w3-container" style="padding:50px 16px" id="tech_dev">
+  <p class="w3-center w3-large">Tech Dev Team</p>
+  <div class="w3-row-padding" style="margin-top:50px">
+    <div class="w3-col l3 m3 w3-margin-bottom">
+      <div class="w3-card" style="width:75%">
+        <img src="Images/Headshots/Nathan.jpg" alt="Nathan" style="width:100%">
+        <div class="w3-container">
+          <h3>Nathan Zheng</h3>
+          <p class="w3-opacity">Tech Dev Lead</p>
+            <p>CS + ORIE 2021</p>
+          <p><button class="w3-button w3-light-grey w3-block"><a href="mailto:nyz3@cornell.edu" style="text-decoration: none;"><i class="fa fa-envelope"></i> Contact</a></button></p>
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>
+    
+ <!-- Footer -->
+<footer class="w3-center w3-padding-64" style="background-color: #1c4872">
+  <a href="team.html" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  
+  <!--<p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>-->
+</footer>   
