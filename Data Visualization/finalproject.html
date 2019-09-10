@@ -1,0 +1,328 @@
+<html>
+<head>
+<title>Project 1 - Static Data Visualization</title>
+<link href="https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="http://d3js.org/topojson.v2.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script src="http://rawgithub.com/markmarkoh/datamaps/master/dist/datamaps.none.min.js"></script>
+<body>
+  <div id ="title">
+    <h1 id ="header">We Are Not Alone</h1>
+    <h1 id ="sub">A Look Into Where Aliens are Hiding and When They Choose to Visit Us.</h1>
+    <h1 id="authors">A data visualization by Amrit Kwatra, Carolyn Shi, and Priyanka Kompella</h1>
+  </div>
+  <div id="mapVis">
+    <h1 class ="graphheader">Number of Sightings grouped by City in 2016</h1>
+    <svg width="960" height="600">
+  </div>
+  <div class = "desc">Above is a map depicting the geographic spread and concentration of UFO sightings in the United States over the last century. The sightings are grouped by which city they were in, and the size of the circle is proportional to the number of sightings in that city. The groupings suggest which cities could be hubs for Alien activity, and are often not the largest cities. Namely, cities in Arizona, Ohio and Washington witness lots of UFO activity, possibly designating them as UFO hotspots?? o.O</div>
+  <div id="heatmap">
+    <h1 class ="graphheader">Cumulative Number of Sightings by Day and Time of Day</h1>
+  </div>
+  <div class = "desc"> Just as expected, UFO sightings tend to occur most frequently in the wee hours of the night. Nothing to surprising about this data, however, perhaps a better question to be investigating, is when in the year the Aliens tend to visit us most often?? o.O</div>
+  <div id="heatmapmonth">
+    <h1 class ="graphheader">Cumulative Number of Sightings by Month and Day of the Month</h1>
+  </div>
+  <div class = "desc"> This is perhaps the most groundbreaking visualization we have come across. This graph indicates when in the year it is the Aliens choose to visit us, and over a century of collecting data we can see that Aliens clearly have times of the year that they prefer to mosey on over to our tiny blue dot. Some data points are expected, and could be explained away, such as Halloween, New Years, and July 4th being a generalized hotspot for reports to be filed (perhaps inaccurately). HOWEVER, there is no plausible explaination for the consistently high number of sightings in the middle and start of every month? What does this spike in sightings mean? Do aliens visit us during paydays each month? Do they actually visit us during events in which sightings can be explained away so as to discredit REAL sightings? One things for sure, there's a pattern to their appearances. There's a mystery going on here folks, and we need to solve it.  </div>
+    <script type="text/javascript">
+        var svg = d3.select("svg");
+        var svg90s = d3.select("mapVis").append("svg");
+        var projection = d3.geoAlbersUsa().scale(75);
+        var pathGenerator = d3.geoPath().projection(projection);
+        var radiusScale = d3.scaleLinear().domain([1,524]).range([1,40]);
+        var opacityScale = d3.scaleLog().domain([1,524]).range([0.5,0.7]);
+        var states;
+        var points;
+
+        var margin = { top: 50, right: 0, bottom: 100, left: 30 };
+        var width = 960 - margin.left - margin.right;
+        var height = 430 - margin.top - margin.bottom;
+        width2 = 960 - 40 - margin.right;
+        height2 = 510 - margin.top - margin.bottom;
+        gridSize = Math.floor(width / 24);
+        gridSize2 = Math.floor(width2/31);
+        var legendElementWidth = gridSize*2;
+        var buckets = 9;
+        var colors = ["#ffffd9", "#F9FCCB", "#F3FABE", "#edf8b1", "#E0F3B2", "#D3EEB3", "#c7e9b4", "#AFDFB6", "#97D6B8", "#7fcdbb", "#6AC5BE", "#55BDC1", "#41b6c4", "#35A9C2", "#299DC1", "#1d91c0", "#1E80B8", "#206FB0", "#225ea8", "#2350A1", "#24429A", "#253494", "#162876","#081d58"]; // alternatively colorbrewer.YlGnBu[9]
+        var days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
+        var times = ["1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "10a", "11a", "12a", "1p", "2p", "3p", "4p", "5p", "6p", "7p", "8p", "9p", "10p", "11p", "12p"];
+
+        var colorScale = d3.scaleQuantile()
+                .domain([0, 2153])
+                .range(colors);
+        var svg1 = d3.select("#heatmap").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        var colorsmd = ["#FFFFD9", "#FAFDCF", "#F6FBC5", "#F1F9BB", "#EDF8B1", "#E3F4B1", "#DAF0B2", "#D0ECB3", "#C7E9B4", "#B5E2B5", "#A3DBB7", "#91D4B9", "#7FCDBB", "#6FC7BD", "#60C1BF", "#50BBC1", "#41B6C4", "#38ACC3", "#2FA3C2", "#269AC1", "#1D91C0", "#1E84BA", "#1F77B4", "#206AAE", "#225EA8", "#2350A1", "#24429A", "#253494", "#1B2C80", "#11246C", "#081D58"];
+        var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        var dates = d3.range(1,32);
+        var dateStr = dates.map(String);
+        var colorScalemd = d3.scaleQuantile()
+                .domain([0, 400])
+                .range(colorsmd);
+        var svg2 = d3.select("#heatmapmonth").append("svg")
+                .attr("width", width2 + 40 + margin.right)
+                .attr("height", height2 + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + 40 + "," + margin.top + ")");
+
+
+        var dayLabels = svg1.selectAll(".dayLabel")
+                .data(days)
+                .enter().append("text")
+                    .text(function (d) { return d; })
+                    .attr("x", 0)
+                    .attr("y", function (d, i) { return i * gridSize; })
+                    .style("text-anchor", "end")
+                    .attr("transform", "translate(-6," + gridSize / 1.5 + ")")
+                    .attr("class", function (d, i) { return ((i >= 0 && i <= 4) ? "dayLabel mono axis axis-workweek" : "dayLabel mono axis"); });
+
+        var timeLabels = svg1.selectAll(".timeLabel")
+              .data(times)
+              .enter().append("text")
+                .text(function(d) { return d; })
+                .attr("x", function(d, i) { return i * gridSize; })
+                .attr("y", 0)
+                .style("text-anchor", "middle")
+                .attr("transform", "translate(" + gridSize / 2 + ", -6)")
+                .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
+
+        var monthLabels = svg2.selectAll(".monthLabel")
+                .data(months)
+                .enter().append("text")
+                    .text(function (d) { return d; })
+                    .attr("x", 0)
+                    .attr("y", function (d, i) { return i * gridSize2; })
+                    .style("text-anchor", "end")
+                    .attr("transform", "translate(-6," + gridSize2 / 1.5 + ")")
+                    .attr("class", "mono");
+
+        var dateLabels = svg2.selectAll(".dateLabel")
+                .data(dates)
+                .enter().append("text")
+                    .text(function(d) { return d; })
+                    .attr("x", function(d, i) { return i * gridSize2; })
+                    .attr("y", 0)
+                    .style("text-anchor", "middle")
+                    .attr("transform", "translate(" + gridSize2 / 2 + ", -6)")
+                    .attr("class", "mono");
+
+        var ufoyear;
+        var ufomonth;
+        var ufonested;
+        function parseData(data) {
+                return {
+                    Year: data.year,
+                    Month: data.month,
+                    Day: data.day,
+                    Hour: data.hour,
+                    Shape: data.shape,
+                    Weekday: data.weekday
+                };
+            };
+
+        function getDecade(d){
+          var timestamp = d.datetime;
+          var start_delim = timestamp.lastIndexOf('/');
+          var year = timestamp.substring(start_delim+1,start_delim+5);
+            return Number(year.substring(1,3));
+        }
+
+        function drawMap(scale) {
+          projection.fitExtent([[0,0], [svg.attr("width"), svg.attr("height")]], counties);
+          pathGenerator = d3.geoPath().projection(projection);
+
+          var paths = svg.selectAll("path.country").data(states.features);
+          paths.enter().append("path").attr("class", "country")
+          .merge(paths)
+          .style("fill", '#000' )
+          .attr("d", function (county) {
+            return pathGenerator(county);
+          });
+        }
+
+      d3.queue()
+        .defer(d3.json, "us.json")
+        .defer(d3.csv,"scrubedited.csv")
+        .await(function (error, rawMap, rawPoints) {
+          var allEntries = rawPoints;
+          counties = topojson.feature(rawMap, rawMap.objects.counties);
+          states = topojson.feature(rawMap, rawMap.objects.states);
+
+          allEntries = allEntries.filter(function(d){
+            return (d.country == "us")
+          });
+
+          points = d3.nest()
+            .key(function(d){ return d.city}).sortKeys(d3.ascending)
+            .entries(allEntries);
+
+          points = points.map(function(d){
+               return [d.key,Number(d.values[0].longitud),Number(d.values[0].latitude),d.values.length];
+          });
+
+          points = points.filter(function(d){
+            return ((projection([d[1],d[2]])) != null)
+          })
+
+        drawMap(d3.scaleLinear());
+          points.forEach(function(d){
+            svg.append("circle")
+                .attr("r",radiusScale(d[3]))
+                .attr("transform", function() {return "translate(" + projection([d[1],d[2]]) + ")";})
+                .style("fill",'#41b6c4')
+                .style("opacity",opacityScale(d[3]));
+
+          });
+
+        svg.append("circle").attr("r", 1).attr("transform", "translate(920,450)").style("fill",'#41b6c4').attr("opacity", 1);
+        svg.append("text").attr("x", 920).attr("y", 450).attr("class","maplabel").attr("text-anchor", "middle").attr("font-size", 10).text("1")
+        svg.append("circle").attr("r", radiusScale(250)).attr("transform", "translate(920,475)").style("fill",'#41b6c4').attr("opacity", .7);
+        svg.append("text").attr("x", 920).attr("y", 480).attr("class","maplabel").attr("text-anchor", "middle").attr("font-size", 15).text("250")
+        svg.append("circle").attr("r", 40).attr("transform", "translate(920,538)").style("fill",'#41b6c4').attr("opacity", .7);
+        svg.append("text").attr("x", 920).attr("y", 543).attr("class","maplabel").attr("text-anchor", "middle").attr("font-size", 20).text("524");
+        svg.append("text").attr("x", 900).attr("y", 430).attr("class","maplabel").attr("id","mapKey").attr("text-anchor", "middle").attr("font-size", 10).text("Sighting Frequency");
+
+          points.sort(function(d1,d2){
+            return d2[3]-d1[3]
+          })
+
+        });
+
+          d3.csv("scrubedited.csv", parseData, function (error, data) {
+                ufo = data;
+
+                ufonested = d3.nest()
+                    .key( function (d) { return Number(d.Weekday)}).sortKeys(d3.ascending)
+                    .key( function (d) {
+                        if(d.Hour.length == 1){
+                            return "0"+d.Hour;
+                        }
+                        else{
+                            return d.Hour;
+                        }
+                    }).sortKeys(d3.ascending)
+                    .rollup( function (d) {return d.length; })
+                    .entries(data);
+
+                ufonestmd = d3.nest()
+                    .key( function (d) { return Number(d.Month)}).sortKeys(d3.ascending)
+                    .key( function (d) {
+                            return d.Day;
+                    }).sortKeys(d3.ascending)
+                    .rollup( function (d) {return d.length; })
+                    .entries(data);
+
+                for(var i =0; i < ufonested.length; i++){
+                    for (var j = 0; j < ufonested[i].values.length; j++) {
+                         svg1.append("rect")
+                        .attr("x", function (d) { return ufonested[i].values[j].key* gridSize; })
+                        .attr("y", function (d) { return ufonested[i].key * gridSize})
+                        .attr("rx", 4)
+                        .attr("ry", 4)
+                        .attr("width", gridSize)
+                        .attr("height", gridSize)
+                        .attr("class", "rect")
+                        .style("fill", function (d) {return colorScale(ufonested[i].values[j].value); });
+                    };
+                }
+
+                var dom = colorScale.domain(),
+                    l = (dom[1] - dom[0])/colorScale.range().length,
+                    breaks = d3.range(0, colorScale.range().length).map(function(i) { return i * l; });
+
+
+                for (var i =0; i < colors.length; i++) {
+                    svg1.append("rect")
+                        .attr("x", gridSize * i)
+                        .attr("y", height)
+                        .attr("width", gridSize)
+                        .attr("height", gridSize/2)
+                        .style("fill", colors[i]);
+                    svg1.append("text")
+                        .text("≥" + Math.floor(breaks[i]))
+                        .attr("x", gridSize * i)
+                        .attr("y", height + gridSize)
+                        .attr("class", "legend")
+                        .attr("transform","translate(9,-5)")
+                        .attr("text-anchor","start");
+
+
+                };
+
+                svg1.append("text")
+                    .text("Time of Day")
+                    .attr("x", "450")
+                    .attr("y","-25")
+                    .attr("text-anchor","middle")
+                    .attr("class","label");
+                svg1.append("text")
+                    .text("Number of Occurences")
+                    .attr("x", "450")
+                    .attr("y","335")
+                    .attr("text-anchor","middle")
+                    .attr("class","label");
+
+                for(var i =0; i<ufonestmd.length;i++){
+                    for (var j = 0; j < ufonestmd[i].values.length; j++) {
+                         svg2.append("rect")
+                        .attr("x", function (d) { return (ufonestmd[i].values[j].key - 1)* gridSize2; })
+                        .attr("y", function (d) { return (ufonestmd[i].key - 1)* gridSize2})
+                        .attr("rx", 4)
+                        .attr("ry", 4)
+                        .attr("width", gridSize2)
+                        .attr("height", gridSize2)
+                        .attr("class", "rect")
+                        .style("fill", function (d) {return colorScalemd(ufonestmd[i].values[j].value); });
+
+                    };
+
+                };
+
+                var dommd = colorScalemd.domain(),
+                    l = (dommd[1] - dommd[0])/colorScalemd.range().length,
+                    breaksmd = d3.range(0, colorScalemd.range().length).map(function(i) { return i * l; });
+
+                for (var i =0; i < colorsmd.length; i++) {
+                    svg2.append("rect")
+                        .attr("x", gridSize2 * i)
+                        .attr("y", height2)
+                        .attr("width", gridSize2)
+                        .attr("height", gridSize2/2)
+                        .style("fill", colorsmd[i]);
+                    svg2.append("text")
+                        .text("≥" + Math.floor(breaksmd[i]))
+                        .attr("x", gridSize2 * i)
+                        .attr("y", height2 + gridSize2)
+                        .attr("class", "legend2")
+                        .attr("transform","translate(9,-5)")
+                        .attr("text-anchor","start");
+
+                };
+
+                svg2.append("text")
+                    .text("Day of the Month")
+                    .attr("x", "450")
+                    .attr("y","-25")
+                    .attr("text-anchor","middle")
+                    .attr("class","label");
+
+                svg2.append("text")
+                    .text("Number of Occurences")
+                    .attr("x", "450")
+                    .attr("y","405")
+                    .attr("text-anchor","middle")
+                    .attr("class","label");
+
+            });
+    </script>
+    <div id="footer"><p> Used colors from inspiration and: https://www.strangeplanet.fr/work/gradient-generator/index.php</p><p>Data from: <a href="https://www.kaggle.com/NUFORC/ufo-sightings">Kaggle</a></p><p>The inspiration for timeline elements: http://bl.ocks.org/tjdecke/5558084.</p><p> Had help from: http://stackoverflow.com/questions/20550840/how-to-get-quantize-values</p></div>
+</body>
+</html>

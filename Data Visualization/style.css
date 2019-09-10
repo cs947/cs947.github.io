@@ -1,0 +1,104 @@
+body{
+  background-color: #4d4d4d
+}
+
+text.mono {
+  font-size: 9pt;
+  font-family: Consolas, courier;
+  fill: #fff;
+}
+
+text.legend {
+  font-size: 8pt;
+  font-family: Consolas, courier;
+  fill: #fff;
+}
+text.legend2 {
+  font-size: 6pt;
+  font-family: Consolas, courier;
+  fill: #fff;
+}
+.label{
+  font-size: 10pt;
+  font-family: Consolas, courier;
+  fill: #fff;
+}
+.maplabel{
+  font-size: 8pt;
+  font-family: Consolas, courier;
+  fill: #fff;
+}
+#mapKey{
+  text-decoration: underline;
+}
+rect {
+  stroke: #4d4d4d;
+  stroke-width:3px;
+}
+
+.graphheader{
+  text-align: center;
+  font-family: Consolas, courier;
+  font-size: 28px;
+  color:#FFFFFF;
+}
+
+#title{
+text-align: center;
+font-family: "VT323";
+color:#FFFFFF;
+}
+#header{
+  font-size: 64px;
+  margin: -5px;
+}
+#sub{
+  font-size: 24px;
+}
+#authors{
+  font-size: 16px;
+  font-family:Consolas, courier;
+}
+#title{
+  border-bottom: solid;
+  border-width: 2px;
+}
+
+#mapVis{
+  color:#FFFFFF;
+}
+
+#heatmap{
+  color:#FFFFFF;
+
+}
+
+.desc{
+  width: 50%;
+  display: block;
+  margin:auto;
+  padding-bottom: 10px;
+  border-bottom: solid;
+  border-width: 2px;
+  color:#FFFFFF;
+  text-align: center;
+  font-family: Consolas, courier;
+  font-size: 14px;
+}
+#footer{
+  color:#ffffff;
+  text-align: center;
+  font-family: Consolas, courier;
+  font-size: 8px;
+}
+svg{
+display: block;
+  margin: auto;
+  margin-top: 25px;
+}
+
+path.country {
+  fill: #000;
+  stroke: #4d4d4d;
+  stroke-weight: 2px;
+}

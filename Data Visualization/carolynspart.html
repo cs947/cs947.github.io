@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+    <head>
+        <style>
+            rect {
+                stroke: #E6E6E6;
+                stroke-width:3px;  
+            }
+            text.mono {
+                font-size: 9pt;
+                font-family: Consolas, courier;
+                fill: #aaa;
+            }
+            text.legend {
+                font-size: 8pt;
+                font-family: Consolas, courier;
+                fill: #aaa;
+            }
+            text.legend2 {
+                font-size: 6pt;
+                font-family: Consolas, courier;
+                fill: #aaa;
+            }
+            text.axis-workweek {
+                fill: #000;
+            }
+            text.axis-worktime {
+                fill: #000;
+            }
+        </style>
+    </head>
+    <body>
+        <p>The inspiration for this was from: http://bl.ocks.org/tjdecke/5558084. <br> Had help from: http://stackoverflow.com/questions/20550840/how-to-get-quantize-values <br>
+        Used colors from inspiration and: https://www.strangeplanet.fr/work/gradient-generator/index.php</p>
+        <div id="heatmap">
+            <p>Heat Map of Day vs. Hour</p>
+            <div id="hmdayhour"></div>
+            <p>Heat Map of Month vs. Day</p>
+            <div id="hmmonthday"></div>
+        </div>
+        <script>
+            var margin = { top: 50, right: 0, bottom: 100, left: 30 },
+              width = 960 - margin.left - margin.right,
+              height = 430 - margin.top - margin.bottom,
+              width2 = 960 - 40 - margin.right,
+              height2 = 510 - margin.top - margin.bottom,
+              gridSize = Math.floor(width / 24),
+              gridSize2 = Math.floor(width2/31),
+              colors = ["#ffffd9", "#F3FABE", "#edf8b1", "#E0F3B2", "#D3EEB3", "#c7e9b4", "#AFDFB6", "#97D6B8", "#7fcdbb", "#6AC5BE", "#55BDC1", "#41b6c4", "#35A9C2", "#299DC1", "#1d91c0", "#1E80B8", "#206FB0", "#225ea8", "#2350A1", "#24429A", "#253494", "#162876","#081d58", "#000208"], 
+              days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+              times = ["1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "10a", "11a", "12a", "1p", "2p", "3p", "4p", "5p", "6p", "7p", "8p", "9p", "10p", "11p", "12p"];
+            var colorScale = d3.scaleQuantile()
+                .domain([0, 2153])
+                .range(colors);
+            var svg = d3.select("#hmdayhour").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            
+            colorsmd = ["#FFFFD9", "#FAFDCF", "#F6FBC5", "#F1F9BB", "#EDF8B1", "#E3F4B1", "#DAF0B2", "#D0ECB3", "#C7E9B4", "#B5E2B5", "#A3DBB7", "#91D4B9", "#7FCDBB", "#6FC7BD", "#60C1BF", "#50BBC1", "#41B6C4", "#38ACC3", "#2FA3C2", "#269AC1", "#1D91C0", "#1E84BA", "#1F77B4", "#206AAE", "#225EA8", "#2350A1", "#24429A", "#253494", "#1B2C80", "#11246C", "#081D58"]
+            months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            dates = d3.range(1,32);
+            var dateStr = dates.map(String);
+            var colorScalemd = d3.scaleQuantile()
+                .domain([0, 400])
+                .range(colorsmd);
+            var svg2 = d3.select("#hmmonthday").append("svg")
+                .attr("width", width2 + 40 + margin.right)
+                .attr("height", height2 + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + 40 + "," + margin.top + ")");
+
+
+            var dayLabels = svg.selectAll(".dayLabel")
+                .data(days)
+                .enter().append("text")
+                    .text(function (d) { return d; })
+                    .attr("x", 0)
+                    .attr("y", function (d, i) { return i * gridSize; })
+                    .style("text-anchor", "end")
+                    .attr("transform", "translate(-6," + gridSize / 1.5 + ")")
+                    .attr("class", function (d, i) { return ((i >= 0 && i <= 4) ? "dayLabel mono axis axis-workweek" : "dayLabel mono axis"); });
+
+          var timeLabels = svg.selectAll(".timeLabel")
+              .data(times)
+              .enter().append("text")
+                .text(function(d) { return d; })
+                .attr("x", function(d, i) { return i * gridSize; })
+                .attr("y", 0)
+                .style("text-anchor", "middle")
+                .attr("transform", "translate(" + gridSize / 2 + ", -6)")
+                .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
+            
+            var monthLabels = svg2.selectAll(".monthLabel")
+                .data(months)
+                .enter().append("text")
+                    .text(function (d) { return d; })
+                    .attr("x", 0)
+                    .attr("y", function (d, i) { return i * gridSize2; })
+                    .style("text-anchor", "end")
+                    .attr("transform", "translate(-6," + gridSize2 / 1.5 + ")")
+                    .attr("class", "mono");
+
+            var dateLabels = svg2.selectAll(".dateLabel")
+                .data(dates)
+                .enter().append("text")
+                    .text(function(d) { return d; })
+                    .attr("x", function(d, i) { return i * gridSize2; })
+                    .attr("y", 0)
+                    .style("text-anchor", "middle")
+                    .attr("transform", "translate(" + gridSize2 / 2 + ", -6)")
+                    .attr("class", "mono");
+
+            var ufoyear;
+            var ufomonth;
+            var ufoheatmap;
+            var ufonested;
+            function parseData(data) {
+                return {
+                    Year: data.year,
+                    Month: data.month,
+                    Day: data.day,
+                    Hour: data.hour,
+                    Shape: data.shape,
+                    Weekday: data.weekday
+                };
+            };
+
+            d3.csv("scrubedited.csv", parseData, function (error, data) {
+                ufo = data;
+
+                ufonested = d3.nest()
+                    .key( function (d) { return Number(d.Weekday)}).sortKeys(d3.ascending)
+                    .key( function (d) {
+                        if(d.Hour.length == 1){
+                            return "0"+d.Hour;
+                        }
+                        else{
+                            return d.Hour;
+                        }
+                    }).sortKeys(d3.ascending)
+                    .rollup( function (d) {return d.length; })
+                    .entries(data);
+                 
+                ufonestmd = d3.nest()
+                    .key( function (d) { return Number(d.Month)}).sortKeys(d3.ascending)
+                    .key( function (d) {
+                            return d.Day;
+                    }).sortKeys(d3.ascending)
+                    .rollup( function (d) {return d.length; })
+                    .entries(data);
+                console.log(ufonested);
+                for(var i =0; i < ufonested.length; i++){
+                    for (var j = 0; j < ufonested[i].values.length; j++) {
+                         svg.append("rect")
+                        .attr("x", function (d) { return ufonested[i].values[j].key* gridSize; })
+                        .attr("y", function (d) { return ufonested[i].key * gridSize})
+                        .attr("rx", 4)
+                        .attr("ry", 4)
+                        .attr("width", gridSize)
+                        .attr("height", gridSize)
+                        .attr("class", "rect")
+                        .style("fill", function (d) {return colorScale(ufonested[i].values[j].value); });
+                    };
+                }
+                 
+                var dom = colorScale.domain(),
+                    l = (dom[1] - dom[0])/colorScale.range().length,
+                    breaks = d3.range(0, colorScale.range().length).map(function(i) { return i * l; });
+                 
+                 
+                for (var i =0; i < colors.length; i++) {
+                    svg.append("rect")
+                        .attr("x", gridSize * i)
+                        .attr("y", height)
+                        .attr("width", gridSize)
+                        .attr("height", gridSize/2)
+                        .style("fill", colors[i]);
+                    svg.append("text")
+                        .text(String.fromCharCode(8805) + " " + Math.floor(breaks[i]))
+                        .attr("x", gridSize * i)
+                        .attr("y", height + gridSize)
+                        .attr("class", "legend")
+                    
+                };
+                 
+                for(var i =0; i<ufonestmd.length;i++){
+                    for (var j = 0; j < ufonestmd[i].values.length; j++) {
+                         svg2.append("rect")
+                        .attr("x", function (d) { return (ufonestmd[i].values[j].key - 1)* gridSize2; })
+                        .attr("y", function (d) { return (ufonestmd[i].key - 1)* gridSize2})
+                        .attr("rx", 4)
+                        .attr("ry", 4)
+                        .attr("width", gridSize2)
+                        .attr("height", gridSize2)
+                        .attr("class", "rect")
+                        .style("fill", function (d) {return colorScalemd(ufonestmd[i].values[j].value); });
+
+                    };
+
+                };
+                 
+                var dommd = colorScalemd.domain(),
+                    l = (dommd[1] - dommd[0])/colorScalemd.range().length,
+                    breaksmd = d3.range(0, colorScalemd.range().length).map(function(i) { return i * l; });
+                 
+                for (var i =0; i < colorsmd.length; i++) {
+                    svg2.append("rect")
+                        .attr("x", gridSize2 * i)
+                        .attr("y", height2)
+                        .attr("width", gridSize2)
+                        .attr("height", gridSize2/2)
+                        .style("fill", colorsmd[i]);
+                    svg2.append("text")
+                        .text(String.fromCharCode(8805) + " " + Math.floor(breaksmd[i]))
+                        .attr("x", gridSize2 * i)
+                        .attr("y", height2 + gridSize2)
+                        .attr("class", "legend2")
+                    
+                };
+            });
+
+        </script>
+    </body>
+</html>
