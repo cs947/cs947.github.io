@@ -31,7 +31,7 @@ The main point of his furniture is that it is arranged with only itself in order
 ### Expression
 Gehry’s furniture stretches the physical limits of materials to serve a purpose. He takes the base material and explores the form of it and how that can be stretched to fit its function. Goldberger, the author of his biography, says that his style can be best described as the intersection between imagination and problem solving.
 
-##Final Design Decisions
+## Final Design Decisions
 ### Typography
 I wanted a font family that was
 - <b>Sans-serif</b> because Gehry’s furniture is not ornate and prioritizes function. He takes the basic elements and manipulates them in order to get them into the shape that is required. Sans-serif I feel like has all the basic elements without all the bells and whistles
