@@ -2,6 +2,8 @@
 
 This file contains a data visualization that I created as a part of a group project. It can only be viewed with a server connection so I have saved a static version as staticcarolynspart.pdf. 
 
+<img src="staticcarolynspart-page-001.jpg" />
+<img src="staticcarolynspart-page-002.jpg" />
 
 ## My part is in carolynspart.html.
 The final group project is finalproject.html.
