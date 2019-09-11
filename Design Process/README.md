@@ -15,7 +15,6 @@ His furniture designs all had common threads of
 Using these guiding principles I gathered from his furniture designs, I thought that this quote from an interview really characterized his work in furniture: "You have to break it down into technical components, which are sort of mosaic in nature" from [here](http://www.pbs.org/wnet/americanmasters/frank-gehry-filmmaker-interview/612/).
 
 ## Style Study
------
 ### Elements
 There are no particular elements like a leg or backrest or armrest that are distinct to Gehry’s style. His furniture can be characterized by repetition or continuity or uniformity across a piece or collection of pieces. A group of pieces will be all made of the same material or created using the same technique or share the same color or have the same curves or have the same texture, etc.
 
@@ -25,19 +24,18 @@ The main point of his furniture is that it is arranged with only itself in order
 ### Techniques
 - <b>Corrugated cardboard:</b> Gehry’s first and second furniture collections: Easy Edges (1969-73) and Experimental Edges (1979-82) — chairs and tables are made with industrial corrugated cardboard. He saw stacks of cardboard at an office one day and experimented with it. Gehry found that if you layered the corrugated board in alternate directions enough times and used glue to adhere them together, it was incredibly strong. It was durable, needed no finishing, and had a noise-canceling quality that reportedly cut sound volume in half.
 
-<b>Bentwood:</b> Knoll furniture series (1989-92) made using the technique of molded plywood of Alvar Aalto and Charles and Ray Eames.
+- <b>Bentwood:</b> Knoll furniture series (1989-92) made using the technique of molded plywood of Alvar Aalto and Charles and Ray Eames.
 
-<b>Fish and Snake Lamps:</b> commissioned by Formica, he and other designers were sent Formica’s new surface material, ColorCore. The story goes that he accidentally dropped a piece and when it shattered, it inspired him and he glued the pieces together to make what are now fish lamps. Gehry believes that the fish is a perfect form. He's fascinated by the movement, liveliness, and lightness of the fish body.
+- <b>Fish and Snake Lamps:</b> commissioned by Formica, he and other designers were sent Formica’s new surface material, ColorCore. The story goes that he accidentally dropped a piece and when it shattered, it inspired him and he glued the pieces together to make what are now fish lamps. Gehry believes that the fish is a perfect form. He's fascinated by the movement, liveliness, and lightness of the fish body.
 
 ### Expression
 Gehry’s furniture stretches the physical limits of materials to serve a purpose. He takes the base material and explores the form of it and how that can be stretched to fit its function. Goldberger, the author of his biography, says that his style can be best described as the intersection between imagination and problem solving.
 
 ##Final Design Decisions
-----
 ### Typography
 I wanted a font family that was
 - <b>Sans-serif</b> because Gehry’s furniture is not ornate and prioritizes function. He takes the basic elements and manipulates them in order to get them into the shape that is required. Sans-serif I feel like has all the basic elements without all the bells and whistles
-<b>Thick stroke</b> mimic the thickness of his materials (i.e. the layers of cardboard, thickness of bushel slats)
+- <b>Thick stroke</b> mimic the thickness of his materials (i.e. the layers of cardboard, thickness of bushel slats)
 
 ### Design
 The height and width of the book are modeled approximately after an actual biography of Frank Gehry called Building Art: the Life and Work of Frank Gehry by Paul Goldberger.
