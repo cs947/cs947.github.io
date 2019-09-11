@@ -2,7 +2,12 @@
 
 This is just a collection of graphics, materials, and logos I've made in the past that might be interesting to look at.
 
-These files are materials I've made for events and just for fun during my time spent at Johnson & Johnson.
+### Engineers Without Borders promotional materials
+- CarriageHouseFacebookCoverPhoto
+- EWB FY Recruitment Photo 01 & 02
+
+### Johnson & Johnson graphics
+I created these to promote events and serve as informational documents.
 - agenda6.2FINAL
 - c2hflyTHIS_IS_THE_FINAL
 - codetohope
