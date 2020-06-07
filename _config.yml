@@ -1,7 +1,7 @@
-logo: /assets/img/logo.png
+logo: /assets/img/sky.jpg
 title: Carolyn Shi
 description: This is my portfolio
-show_downloads: 
+show_downloads:
 google_analytics:
 theme: jekyll-theme-minimal
 plugins:
@@ -12,4 +12,4 @@ plugins:
   - jemoji
   - jekyll-include-cache
 
-#page1: virtualc.md
+page1: virtualc.md
