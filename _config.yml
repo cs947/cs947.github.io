@@ -3,7 +3,13 @@ title: Carolyn Shi
 description: This is my portfolio
 show_downloads: 
 google_analytics:
-#theme: jekyll-theme-minimal
-
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
 
 #page1: virtualc.md
