@@ -1,9 +1,9 @@
-title: Carolyn Shi
 logo: /assets/img/logo.png
+title: Carolyn Shi
 description: This is my portfolio
 show_downloads: 
 google_analytics:
 theme: jekyll-theme-minimal
 
 
-page1: virtualc.md
+#page1: virtualc.md
