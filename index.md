@@ -2,7 +2,7 @@
 layout: default
 ---
 
-#Hello, welcome to my portfolio
+# Hello, welcome to my portfolio
 
 ## I am a Cornell graduate moving into healthcare technology at Johnson & Johnson. 
 
