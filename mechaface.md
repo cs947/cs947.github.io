@@ -1,8 +1,9 @@
 ## Mechaface
 
 
-![EmmaWoods](https://github.com/cs947/cs947.github.io/blob/master/assets/img/mechafaceposter.png)
-[Click here if image is not available](https://github.com/cs947/cs947.github.io/blob/master/assets/img/mechafaceposter.png)
+![EmmaWoods](https://github.com/cs947/cs947.github.io/blob/master/assets/img/mechaface.png)
+
+[Click here if image is not available](https://github.com/cs947/cs947.github.io/blob/master/assets/img/mechaface.png)
 
 ### Context
 
