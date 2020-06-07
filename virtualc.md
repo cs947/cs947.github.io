@@ -19,6 +19,8 @@ We decided to leverage modern technology to create a new way to allow professors
 
 ### Companion App Prototype
 
+A companion app is used to help search for people to meet with and schedule meetings. People will be asked to sign up 
+
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="600" height="338" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FCAe3E8GvkzFolicrR9fMd6%2F4400-Affinity-Diagram%3Fnode-id%3D825%253A13409%26scaling%3Dscale-down&chrome=DOCUMENTATION" allowfullscreen></iframe>
 
 ### Context
