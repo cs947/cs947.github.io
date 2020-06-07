@@ -24,4 +24,4 @@ A companion app is used to help search for people to meet with and schedule meet
 
 ### Context
 
-This project was the result of the Advanced Human Computer Interaction class with a team of four including myself, Suzanne Lee, Gaby Maurice, and Adeyemi Oyemade.
+This project was the result of the Advanced Human Computer Interaction class with a team of four including myself, [Suzanne Lee](http://suzanneleeux.com/), Gaby Maurice, and Adeyemi Oyemade.

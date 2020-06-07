@@ -12,4 +12,5 @@ plugins:
   - jemoji
   - jekyll-include-cache
 
-page1: virtualc.md
+page1: virtualc
+page2: Mechaface
