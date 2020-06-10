@@ -3,6 +3,8 @@
 
 ![EmmaWoods](https://github.com/cs947/cs947.github.io/blob/master/assets/img/mechaface.png)
 
+![Mechaface poster](https://github.com/cs947/cs947.github.io/blob/master/assets/img/mechaface.jpg)
+
 [Click here if image is not available](https://github.com/cs947/cs947.github.io/blob/master/assets/img/mechaface.png)
 
 ### Context
