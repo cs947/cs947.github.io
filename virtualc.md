@@ -4,10 +4,28 @@ layout: default
 
 # VirtualC
 
-VirtualC aims to create opportunities for university professors to find the right collaborator for them.
+VirtualC aims to create opportunities for university professors to find the right collaborator.
 
 ### Problem
-Professors are conducting more interdisciplinary research. There are far more potential people professors can work with as a result of industrialization and globalization. Professors can easily screen by skills without taking personality and work style into account leading to problems down the line in the partnerships. How can professors find the **right** collaborator?
+As professors conduct more interdisciplinary research and global communications open new doors, the pool of potential collaborators increases significantly.
+Professors can easily screen people by their skills without taking personality into account leading to problems down the line in partnerships. How can professors find the collaborator that not only has compatible skills but also harmonious work style?
+
+### Research & Design Process
+We conducted the following research methods in order to understand our users, narrow the scope of our project, and inform the final product design.
+
+###### Research Methods
+* Contextual interviews
+* Affinity diagrams
+* Literature review
+* Cultural Probes
+
+Using what we learned from our research, we moved onto solution ideation and creation. Due to COVID-19 schedule disruptions, we were unable to conduct testing and iterations on the prototype like we planned.
+
+###### Design Process
+* Brainstorming and sketching
+* Idea selection and development
+* Prototyping
+
 
 ### Solution
 We decided to leverage modern technology to create a new way to allow professors to meet, get to know, and decide if they want to do research with someone else. VirtualC is a VR activity implemented at conferences across the world that facilitates meaningful discussion. Participants can choose a location to explore with their partner(s), allowing for common ground. Text prompts will appear every five minutes to initiate constructive discourse.
