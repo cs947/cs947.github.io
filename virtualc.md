@@ -13,7 +13,7 @@ Professors can easily screen people by their skills without taking personality i
 ### Research & Design Process
 We conducted the following research methods in order to understand our users, narrow the scope of our project, and inform the final product design.
 
-###### Research Methods
+#### Research Methods
 * Contextual interviews
 * Affinity diagrams
 * Literature review
@@ -21,7 +21,7 @@ We conducted the following research methods in order to understand our users, na
 
 Using what we learned from our research, we moved onto solution ideation and creation. Due to COVID-19 schedule disruptions, we were unable to conduct testing and iterations on the prototype like we planned.
 
-###### Design Process
+#### Design Process
 * Brainstorming and sketching
 * Idea selection and development
 * Prototyping
