@@ -3,7 +3,7 @@ title: Carolyn Shi
 description: This is my portfolio,
  please click below for my projects
 show_downloads:
-google_analytics:
+google_analytics: 169143011
 theme: jekyll-theme-minimal
 plugins:
   - jekyll-paginate
