@@ -13,11 +13,19 @@ Professors can easily screen people by their skills without taking personality i
 ### Research & Design Process
 We conducted the following research methods in order to understand our users, narrow the scope of our project, and inform the final product design.
 
-#### Research Methods
-* Contextual interviews
-* Affinity diagrams
-* Literature review
-* Cultural Probes
+#### Contextual Interviews
+We interviewed 5 Cornell professors in groups of two, one interviewer and one note-taker (sometimes with an additional member as support). Immediately after each interview, we would review and gather key parts of the interview that we thought we were important given the lens of our problem. Below, you can see our key takeaways from each individual. 
+![Interview Takeaways](https://raw.githubusercontent.com/cs947/cs947.github.io/master/assets/img/interviewtakeaways.png)
+
+#### Affinity Diagramming
+We sorted all of the previous interview takeaways into clusters of related issues, as can be seen below. 
+![Sorted Affinity Diagram](https://raw.githubusercontent.com/cs947/cs947.github.io/master/assets/img/mechaface.png)
+
+#### Literature Review
+coming soon.
+
+#### Cultural Probes 
+We created a set of 8 digital probes to gather more data and receive inspiration from our target audience. 
 
 Using what we learned from our research, we moved onto solution ideation and creation. Due to COVID-19 schedule disruptions, we were unable to conduct testing and iterations on the prototype like we planned.
 
@@ -42,4 +50,4 @@ A companion app is used to help search for people to meet with and schedule meet
 
 ### Context
 
-This project was the result of the Advanced Human Computer Interaction class with a team of four including myself, [Suzanne Lee](http://suzanneleeux.com/), Gaby Maurice, and Adeyemi Oyemade.
+This project was the result of the Advanced Human Computer Interaction class with a team of four including myself, [Suzanne Lee](http://suzanneleeux.com/), [Gaby Maurice](https://www.clippings.me/gabymaurice), and Adeyemi Oyemade.
