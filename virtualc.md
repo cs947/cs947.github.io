@@ -19,7 +19,7 @@ We interviewed 5 Cornell professors in groups of two, one interviewer and one no
 
 #### Affinity Diagramming
 We sorted all of the previous interview takeaways into clusters of related issues, as can be seen below. 
-![Sorted Affinity Diagram](https://raw.githubusercontent.com/cs947/cs947.github.io/master/assets/img/mechaface.png)
+![Sorted Affinity Diagram](https://raw.githubusercontent.com/cs947/cs947.github.io/master/assets/img/sortedaffinitydiagram.jpg)
 
 #### Literature Review
 coming soon.
